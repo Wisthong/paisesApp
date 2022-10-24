@@ -1,0 +1,24 @@
+<h2 class="text-center fw-bold">Por pais</h2>
+<hr />
+
+<div class="row">
+  <div class="col">
+    <app-pais-input
+      (onBusqueda)="onBuscar($event)"
+      (onDebounce)="onSugerencias($event)"
+      placeholder="Buscar por pais ......"
+    ></app-pais-input>
+  </div>
+</div>
+
+<hr />
+
+<div class="alert alert-danger" *ngIf="bandera">
+  <p>No se encontro nada con la busqueda</p>
+</div>
+
+<div class="row" *ngIf="listCountry.length > 0">
+  <div class="col">
+    <app-pais-tabla [listCountry]="listCountry"></app-pais-tabla>
+  </div>
+</div>
