@@ -1,4 +1,4 @@
-<h2 class="text-center fw-bold">Por pais</h2>
+<h2 class="titulo">Por pais</h2>
 <hr />
 
 <div class="row">
@@ -10,6 +10,25 @@
     ></app-pais-input>
   </div>
 </div>
+
+<ul *ngIf="mostrarSugeridos === true" class="list-group">
+  <li
+    style="cursor: pointer"
+    class="list-group-item list-group-item-action"
+    *ngFor="let item of listCountrySugeridos"
+  >
+    <a class="nav-link" [routerLink]="['/pais', item.cca2]">
+      {{ item.name.common }}
+    </a>
+  </li>
+  <li
+    (click)="onBuscarSugerido(busqueda)"
+    style="cursor: pointer"
+    class="list-group-item list-group-item-action"
+  >
+    Buscar "{{ busqueda }}"
+  </li>
+</ul>
 
 <hr />
 

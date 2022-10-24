@@ -21,13 +21,9 @@ export class VerPaisComponent implements OnInit {
     //TODO: Uso de switchMap, que
 
     this.route.params
-      .pipe(
-        switchMap(({ id }) => this.paisSvc.getPaisPorCode(id)),
-        tap(console.log)
-      )
+      .pipe(switchMap(({ id }) => this.paisSvc.getPaisPorCode(id)))
       .subscribe((resOk) => {
         this.pais = resOk;
-
       });
   }
 }

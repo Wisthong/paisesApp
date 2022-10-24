@@ -8,19 +8,22 @@ import { PaisService } from '@modules/pais/services/pais.service';
   styleUrls: ['./por-pais.component.css'],
 })
 export class PorPaisComponent {
-  // busqueda!: string;
+  busqueda!: string;
   bandera: boolean = false;
+  mostrarSugeridos: boolean = false;
   listCountry: Country[] = [];
+  listCountrySugeridos: Country[] = [];
 
   constructor(private readonly paisSvc: PaisService) {}
 
   onBuscar(busqueda: string) {
+    this.mostrarSugeridos = false;
     if (busqueda !== null) {
+      this.busqueda = busqueda;
       this.bandera = false;
       this.paisSvc.buscarPais(busqueda).subscribe(
         (resOk) => {
           this.listCountry = resOk;
-          console.log(resOk);
         },
         (resFail) => {
           this.bandera = true;
@@ -32,6 +35,20 @@ export class PorPaisComponent {
 
   onSugerencias(valor: string) {
     this.bandera = false;
-    // console.log(valor);
+    this.busqueda = valor;
+    this.mostrarSugeridos = true;
+    this.paisSvc.buscarPais(valor).subscribe(
+      (resOk) => {
+        this.listCountrySugeridos = resOk.slice(0, 8);
+      },
+      (resFail) => {
+        this.listCountrySugeridos = [];
+        // this.mostrarSugeridos = false;
+      }
+    );
+  }
+
+  onBuscarSugerido(busqueda: string) {
+    this.onBuscar(busqueda);
   }
 }

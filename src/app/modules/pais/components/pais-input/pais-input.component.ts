@@ -17,13 +17,14 @@ export class PaisInputComponent implements OnInit {
   debouncer: Subject<string> = new Subject();
 
   ngOnInit(): void {
-    this.debouncer.pipe(debounceTime(300)).subscribe((valor) => {
-      this.onDebounce.emit(valor);
+    this.debouncer.pipe(debounceTime(300)).subscribe((textoValor) => {
+      this.onDebounce.emit(textoValor);
     });
   }
 
   onBuscar() {
     if (this.busqueda !== null) {
+      console.log(this.busqueda);
       this.onBusqueda.emit(this.busqueda);
     }
   }

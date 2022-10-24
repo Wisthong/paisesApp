@@ -19,7 +19,6 @@ export class PorCapitalComponent {
       this.paisSvc.buscarCapital(busqueda).subscribe(
         (resOk) => {
           this.listCountry = resOk;
-          console.log(resOk);
         },
         (resFail) => {
           this.bandera = true;
