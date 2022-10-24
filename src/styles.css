@@ -1,5 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
 
-.mr-1{
+html,
+body {
+  background-color: #ebf2fa;
+}
+
+.mr-1 {
   margin-right: 5px;
+}
+
+.titulo {
+  font-weight: bold;
+  color: #064789;
+  text-align: center;
+}
+
+.subtitulo {
+  color: #b8b8ff;
+  text-align: center;
+  font-weight: bolder;
+}
+
+.fondo {
+  background-color: #ebf2fa;
 }
