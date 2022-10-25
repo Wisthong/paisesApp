@@ -21,7 +21,7 @@
       {{ item.name.common }}
     </a>
   </li>
-  <li
+  <li *ngIf="busqueda.length > 0"
     (click)="onBuscarSugerido(busqueda)"
     style="cursor: pointer"
     class="list-group-item list-group-item-action"

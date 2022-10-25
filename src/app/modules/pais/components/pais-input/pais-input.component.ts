@@ -24,7 +24,6 @@ export class PaisInputComponent implements OnInit {
 
   onBuscar() {
     if (this.busqueda !== null) {
-      console.log(this.busqueda);
       this.onBusqueda.emit(this.busqueda);
     }
   }
